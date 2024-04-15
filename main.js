@@ -11,8 +11,8 @@ const PROMPT = `What’s in this image? Be brief, it's for image alt description
 const MAX_TOKENS = 85;
 const DETAIL = 'low';
 const UPLOAD_LIMIT =
-  Deno.env.get('UPLOAD_LIMIT') || env.UPLOAD_LIMIT || 10 * 1024 * 1024; // 10MB
-const API_KEY = Deno.env.get('OPENAI_API_KEY') || env.OPENAI_API_KEY;
+  env.UPLOAD_LIMIT || 10 * 1024 * 1024; // 10MB
+const API_KEY = env.OPENAI_API_KEY;
 const openai = new OpenAI({ apiKey: API_KEY });
 function requestVision(image_url) {
   return openai.chat.completions.create({
