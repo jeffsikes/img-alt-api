@@ -12,7 +12,7 @@ const MAX_TOKENS = 140;
 const UPLOAD_LIMIT =
   Deno.env.get('UPLOAD_LIMIT') || env.UPLOAD_LIMIT || 10 * 1024 * 1024; // 10MB
 const API_KEY = Deno.env.get('OPENAI_API_KEY') || env.OPENAI_API_KEY;
-const MODEL = Deno.env.get('OPENAI_MODEL') || env.OPENAI_MODEL || 'gpt-5-nano';
+const MODEL = Deno.env.get('OPENAI_MODEL') || env.OPENAI_MODEL || 'gpt-5.4-nano';
 
 const openai = new OpenAI({ apiKey: API_KEY });
 function requestVision(image_url, { lang } = {}) {
@@ -43,7 +43,7 @@ function requestVision(image_url, { lang } = {}) {
     input,
     max_output_tokens: MAX_TOKENS,
     reasoning: {
-      effort: 'minimal',
+      effort: 'low',
     },
   });
 }
